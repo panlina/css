@@ -4,6 +4,7 @@
   "homepage": "https://github.com/panlina/css-select",
   "author": "Jack Lu <jacklu@jacklu.me>",
   "dependencies": {
-    "css-what": "^2.1.0"
+    "css-what": "^2.1.0",
+    "specificity": "^0.3.2"
   }
 }
