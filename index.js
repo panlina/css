@@ -6,9 +6,10 @@ module.exports = function (css) {
 		return css.reduce(function (node, filter) {
 			switch (filter.type) {
 				case 'child': return [].concat.apply([], node.map(function (n) { return n.children; }));
+				case 'descendant': return [].concat.apply([], node.map(descendant));
 				default: return node.filter(match(filter));
 			}
-		}, node.children);
+		}, descendant(node));
 	};
 };
 function match(filter) {
@@ -16,4 +17,7 @@ function match(filter) {
 		case 'universal': return function () { return true; };
 		case 'tag': return function (node) { return node.type == 'element' && node.name == filter.name; };
 	}
+}
+function descendant(node) {
+	return [].concat.apply([node], node.children.map(descendant));
 }
