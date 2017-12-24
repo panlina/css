@@ -6,5 +6,18 @@
   "dependencies": {
     "css-what": "^2.1.0",
     "specificity": "^0.3.2"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0",
+    "browserify-shim": "^3.8.14"
+  },
+  "scripts": {
+    "build": "browserify -r ./index.js:css index.js > css.browser.js"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "browserify-shim": {
+    "specificity": "global:SPECIFICITY"
   }
 }
