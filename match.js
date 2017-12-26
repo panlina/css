@@ -25,8 +25,6 @@ module.exports = function (css) {
 			rule.sort(function (r, s) {
 				return SPECIFICITY.compare(r.selector, s.selector);
 			});
-			var style = rule.map(function (rule) { return rule.style; });
-			elementrule[id].style = style;
 		}
 		return elementrule;
 	};
